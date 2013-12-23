@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{558C3B26-04E6-4282-B2AF-B9984CDD2E00}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PacketFrontEnd</RootNamespace>
+    <AssemblyName>PacketFrontEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ThemesHTML\css\default.css" />
+    <Content Include="Content\ThemesHTML\css\fontface.css" />
+    <Content Include="Content\ThemesHTML\css\Home.css" />
+    <Content Include="Content\ThemesHTML\css\News.css" />
+    <Content Include="Content\ThemesHTML\css\nivo-slider.css" />
+    <Content Include="Content\ThemesHTML\css\orman.css" />
+    <Content Include="Content\ThemesHTML\css\pascal.css" />
+    <Content Include="Content\ThemesHTML\css\reset.css" />
+    <Content Include="Content\ThemesHTML\css\ShowDetail.css" />
+    <Content Include="Content\ThemesHTML\css\style.css" />
+    <Content Include="Content\ThemesHTML\Detail Product.html" />
+    <Content Include="Content\ThemesHTML\fonts\7leditalic-webfont.svg" />
+    <Content Include="Content\ThemesHTML\fonts\ds-digib-webfont.svg" />
+    <Content Include="Content\ThemesHTML\home -Logon.html" />
+    <Content Include="Content\ThemesHTML\home.html" />
+    <Content Include="Content\ThemesHTML\images\Cho yeu thuong quay ve - Ngan Khanh.mp3" />
+    <Content Include="Content\ThemesHTML\images\d1.jpg" />
+    <Content Include="Content\ThemesHTML\images\d2.jpg" />
+    <Content Include="Content\ThemesHTML\images\d3.jpg" />
+    <Content Include="Content\ThemesHTML\images\d4.jpg" />
+    <Content Include="Content\ThemesHTML\images\d5.jpg" />
+    <Content Include="Content\ThemesHTML\images\h1.jpg" />
+    <Content Include="Content\ThemesHTML\images\h2.jpg" />
+    <Content Include="Content\ThemesHTML\images\h3.jpg" />
+    <Content Include="Content\ThemesHTML\images\h4.jpg" />
+    <Content Include="Content\ThemesHTML\images\h5.jpg" />
+    <Content Include="Content\ThemesHTML\images\h6.jpg" />
+    <Content Include="Content\ThemesHTML\images\h7.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\1.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\2.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\3.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\4.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\5.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\arrowleft.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\arrowleft.png" />
+    <Content Include="Content\ThemesHTML\images\home\arrowright.png" />
+    <Content Include="Content\ThemesHTML\images\home\arrows.png" />
+    <Content Include="Content\ThemesHTML\images\home\banner.png" />
+    <Content Include="Content\ThemesHTML\images\home\bg.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\bg_left.png" />
+    <Content Include="Content\ThemesHTML\images\home\bg_menu.gif" />
+    <Content Include="Content\ThemesHTML\images\home\Bg_menu.png" />
+    <Content Include="Content\ThemesHTML\images\home\bg_right.png" />
+    <Content Include="Content\ThemesHTML\images\home\bullets.png" />
+    <Content Include="Content\ThemesHTML\images\home\choose_Menu.png" />
+    <Content Include="Content\ThemesHTML\images\home\footer.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\footer.png" />
+    <Content Include="Content\ThemesHTML\images\home\list_style.gif" />
+    <Content Include="Content\ThemesHTML\images\home\list_style1.gif" />
+    <Content Include="Content\ThemesHTML\images\home\loading.gif" />
+    <Content Include="Content\ThemesHTML\images\home\nemo.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\price_center.png" />
+    <Content Include="Content\ThemesHTML\images\home\price_left.png" />
+    <Content Include="Content\ThemesHTML\images\home\price_right.png" />
+    <Content Include="Content\ThemesHTML\images\home\search.gif" />
+    <Content Include="Content\ThemesHTML\images\home\search.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\search_adv.gif" />
+    <Content Include="Content\ThemesHTML\images\home\TopSellerNumber1Bg.png" />
+    <Content Include="Content\ThemesHTML\images\home\TopSellerNumberBg.gif" />
+    <Content Include="Content\ThemesHTML\images\home\toystory.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\up.jpg" />
+    <Content Include="Content\ThemesHTML\images\home\walle.jpg" />
+    <Content Include="Content\ThemesHTML\images\nhac phim ngo vang.mp3" />
+    <Content Include="Content\ThemesHTML\images\product1.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\1.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\10.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\10_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\1_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\2.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\2_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\3.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\3_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\4.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\4_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\5.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\5_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\6.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\6_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\7.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\7_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\8.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\8_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\9.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\9_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\images\slider\arrowleft.png" />
+    <Content Include="Content\ThemesHTML\images\slider\arrowright.png" />
+    <Content Include="Content\ThemesHTML\images\Thumbnail_013.jpg" />
+    <Content Include="Content\ThemesHTML\images\Thumbnail_016.jpg" />
+    <Content Include="Content\ThemesHTML\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\ThemesHTML\js\jquery.js" />
+    <Content Include="Content\ThemesHTML\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\ThemesHTML\js\jquery.slideViewerPro.1.0.js" />
+    <Content Include="Content\ThemesHTML\js\liveshow\.idea\encodings.xml" />
+    <Content Include="Content\ThemesHTML\js\liveshow\.idea\misc.xml" />
+    <Content Include="Content\ThemesHTML\js\liveshow\.idea\modules.xml" />
+    <Content Include="Content\ThemesHTML\js\liveshow\.idea\vcs.xml" />
+    <Content Include="Content\ThemesHTML\js\liveshow\.idea\workspace.xml" />
+    <Content Include="Content\ThemesHTML\js\liveshow\css\default.css" />
+    <Content Include="Content\ThemesHTML\js\liveshow\css\Home.css" />
+    <Content Include="Content\ThemesHTML\js\liveshow\css\nivo-slider.css" />
+    <Content Include="Content\ThemesHTML\js\liveshow\css\orman.css" />
+    <Content Include="Content\ThemesHTML\js\liveshow\css\pascal.css" />
+    <Content Include="Content\ThemesHTML\js\liveshow\css\style.css" />
+    <Content Include="Content\ThemesHTML\js\liveshow\image\arrows.png" />
+    <Content Include="Content\ThemesHTML\js\liveshow\image\bullets.png" />
+    <Content Include="Content\ThemesHTML\js\liveshow\image\loading.gif" />
+    <Content Include="Content\ThemesHTML\js\liveshow\image\nemo.jpg" />
+    <Content Include="Content\ThemesHTML\js\liveshow\image\toystory.jpg" />
+    <Content Include="Content\ThemesHTML\js\liveshow\image\up.jpg" />
+    <Content Include="Content\ThemesHTML\js\liveshow\image\walle.jpg" />
+    <Content Include="Content\ThemesHTML\js\liveshow\index.html" />
+    <Content Include="Content\ThemesHTML\js\liveshow\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\ThemesHTML\js\liveshow\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\ThemesHTML\News.html" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\default.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\Detail Product.html" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\fontface.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\Home.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\News.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\nivo-slider.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\orman.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\pascal.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\reset.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\ShowDetail.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\css\style.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\Detail Product.html" />
+    <Content Include="Content\ThemesHTML\ver 1.1\fonts\7leditalic-webfont.svg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\fonts\ds-digib-webfont.svg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\home -Logon.html" />
+    <Content Include="Content\ThemesHTML\ver 1.1\home.html" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\Cho yeu thuong quay ve - Ngan Khanh.mp3" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\d1.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\d2.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\d3.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\d4.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\d5.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\1.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\2.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\3.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\4.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\5.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\arrowleft.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\arrowleft.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\arrowright.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\arrows.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\banner.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\bg.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\bg_left.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\bg_menu.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\Bg_menu.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\bg_right.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\bullets.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\choose_Menu.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\footer.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\footer.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\list_style.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\list_style1.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\loading.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\nemo.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\search.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\search.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\search_adv.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\TopSellerNumber1Bg.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\TopSellerNumberBg.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\toystory.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\up.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\home\walle.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\nhac phim ngo vang.mp3" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\product1.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\1.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\10.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\10_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\1_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\2.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\2_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\3.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\3_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\4.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\4_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\5.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\5_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\6.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\6_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\7.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\7_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\8.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\8_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\9.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\9_thumb.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\arrowleft.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\slider\arrowright.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\Thumbnail_013.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\images\Thumbnail_016.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\CustomMenu.js" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\jquery.js" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\jquery.slideViewerPro.1.0.js" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\.idea\encodings.xml" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\.idea\misc.xml" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\.idea\modules.xml" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\.idea\vcs.xml" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\.idea\workspace.xml" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\css\default.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\css\Home.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\css\nivo-slider.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\css\orman.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\css\pascal.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\css\style.css" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\image\arrows.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\image\bullets.png" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\image\loading.gif" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\image\nemo.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\image\toystory.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\image\up.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\image\walle.jpg" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\index.html" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\ThemesHTML\ver 1.1\js\liveshow\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\ThemesHTML\ver 1.1\News.html" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\ThemesHTML\images\slider\.svn\props\" />
+    <Folder Include="Content\ThemesHTML\images\slider\.svn\tmp\prop-base\" />
+    <Folder Include="Content\ThemesHTML\images\slider\.svn\tmp\props\" />
+    <Folder Include="Content\ThemesHTML\images\slider\.svn\tmp\text-base\" />
+    <Folder Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\props\" />
+    <Folder Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\tmp\prop-base\" />
+    <Folder Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\tmp\props\" />
+    <Folder Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\ThemesHTML\fonts\7leditalic-webfont.eot" />
+    <None Include="Content\ThemesHTML\fonts\7leditalic-webfont.ttf" />
+    <None Include="Content\ThemesHTML\fonts\7leditalic-webfont.woff" />
+    <None Include="Content\ThemesHTML\fonts\ds-digib-webfont.eot" />
+    <None Include="Content\ThemesHTML\fonts\ds-digib-webfont.ttf" />
+    <None Include="Content\ThemesHTML\fonts\ds-digib-webfont.woff" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\all-wcprops" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\entries" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\1.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\2.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\3.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\4.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\5.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\6.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\7.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\8.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\arrowleft.png.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\prop-base\arrowright.png.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\1.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\2.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\3.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\4.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\5.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\6.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\7.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\8.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\arrowleft.png.svn-base" />
+    <None Include="Content\ThemesHTML\images\slider\.svn\text-base\arrowright.png.svn-base" />
+    <None Include="Content\ThemesHTML\js\liveshow\.idea\.name" />
+    <None Include="Content\ThemesHTML\js\liveshow\.idea\demo.iml" />
+    <None Include="Content\ThemesHTML\ver 1.1\fonts\7leditalic-webfont.eot" />
+    <None Include="Content\ThemesHTML\ver 1.1\fonts\7leditalic-webfont.ttf" />
+    <None Include="Content\ThemesHTML\ver 1.1\fonts\7leditalic-webfont.woff" />
+    <None Include="Content\ThemesHTML\ver 1.1\fonts\ds-digib-webfont.eot" />
+    <None Include="Content\ThemesHTML\ver 1.1\fonts\ds-digib-webfont.ttf" />
+    <None Include="Content\ThemesHTML\ver 1.1\fonts\ds-digib-webfont.woff" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\all-wcprops" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\entries" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\1.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\2.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\3.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\4.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\5.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\6.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\7.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\8.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\arrowleft.png.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\prop-base\arrowright.png.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\1.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\2.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\3.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\4.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\5.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\6.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\7.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\8.jpg.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\arrowleft.png.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\images\slider\.svn\text-base\arrowright.png.svn-base" />
+    <None Include="Content\ThemesHTML\ver 1.1\js\liveshow\.idea\.name" />
+    <None Include="Content\ThemesHTML\ver 1.1\js\liveshow\.idea\demo.iml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5096</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
