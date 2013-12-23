@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MvcApplicationDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MvcApplicationDBModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="MvcApplicationDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Articles" EntityType="MvcApplicationDBModel.Store.tbl_Articles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_files" EntityType="MvcApplicationDBModel.Store.tbl_files" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Origins" EntityType="MvcApplicationDBModel.Store.tbl_Origins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Products" EntityType="MvcApplicationDBModel.Store.tbl_Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_ProductTypes" EntityType="MvcApplicationDBModel.Store.tbl_ProductTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Relationship" EntityType="MvcApplicationDBModel.Store.tbl_Relationship" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Units" EntityType="MvcApplicationDBModel.Store.tbl_Units" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="pk_key1" Association="MvcApplicationDBModel.Store.pk_key1">
+            <End Role="tbl_ProductTypes" EntitySet="tbl_ProductTypes" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="pk_key2" Association="MvcApplicationDBModel.Store.pk_key2">
+            <End Role="tbl_Origins" EntitySet="tbl_Origins" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="pk_keyfile" Association="MvcApplicationDBModel.Store.pk_keyfile">
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+            <End Role="tbl_files" EntitySet="tbl_files" />
+          </AssociationSet>
+          <AssociationSet Name="pk_keyUnit" Association="MvcApplicationDBModel.Store.pk_keyUnit">
+            <End Role="tbl_Units" EntitySet="tbl_Units" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Articles">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="300" />
+          <Property Name="Type" Type="int" />
+          <Property Name="FeatureImage" Type="nvarchar" MaxLength="300" />
+          <Property Name="ReadMore" Type="ntext" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="Meta" Type="ntext" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Author" Type="nvarchar" MaxLength="300" />
+          <Property Name="PostDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_files">
+          <Key>
+            <PropertyRef Name="Fil_Id" />
+          </Key>
+          <Property Name="Fil_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Pro_Id" Type="int" />
+          <Property Name="Fil_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Description" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbl_Origins">
+          <Key>
+            <PropertyRef Name="Ori_Id" />
+          </Key>
+          <Property Name="Ori_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ori_Conutry" Type="nvarchar" MaxLength="300" />
+          <Property Name="Descriptions" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbl_Products">
+          <Key>
+            <PropertyRef Name="Pro_Id" />
+          </Key>
+          <Property Name="Pro_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProType_Id" Type="int" />
+          <Property Name="Ori_Id" Type="int" />
+          <Property Name="Pro_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Pro_Images" Type="nvarchar" MaxLength="300" />
+          <Property Name="Pro_Price" Type="int" />
+          <Property Name="Pro_Warranty" Type="nvarchar" MaxLength="300" />
+          <Property Name="Descriptions" Type="ntext" />
+          <Property Name="Unit_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_ProductTypes">
+          <Key>
+            <PropertyRef Name="ProType_Id" />
+          </Key>
+          <Property Name="ProType_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProType_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Descriptions" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbl_Relationship">
+          <Key>
+            <PropertyRef Name="ParentId" />
+            <PropertyRef Name="Children" />
+          </Key>
+          <Property Name="ParentId" Type="int" Nullable="false" />
+          <Property Name="Children" Type="int" Nullable="false" />
+          <Property Name="Descriptions" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbl_Units">
+          <Key>
+            <PropertyRef Name="Unit_Id" />
+          </Key>
+          <Property Name="Unit_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Unit_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Description" Type="ntext" />
+        </EntityType>
+        <Association Name="pk_key1">
+          <End Role="tbl_ProductTypes" Type="MvcApplicationDBModel.Store.tbl_ProductTypes" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.Store.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProductTypes">
+              <PropertyRef Name="ProType_Id" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="ProType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk_key2">
+          <End Role="tbl_Origins" Type="MvcApplicationDBModel.Store.tbl_Origins" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.Store.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Origins">
+              <PropertyRef Name="Ori_Id" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="Ori_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk_keyfile">
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.Store.tbl_Products" Multiplicity="0..1" />
+          <End Role="tbl_files" Type="MvcApplicationDBModel.Store.tbl_files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Products">
+              <PropertyRef Name="Pro_Id" />
+            </Principal>
+            <Dependent Role="tbl_files">
+              <PropertyRef Name="Pro_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk_keyUnit">
+          <End Role="tbl_Units" Type="MvcApplicationDBModel.Store.tbl_Units" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.Store.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Units">
+              <PropertyRef Name="Unit_Id" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="Unit_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MvcApplicationDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MvcApplicationDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="MvcApplicationDBModel.sysdiagram" />
+          <EntitySet Name="tbl_Articles" EntityType="MvcApplicationDBModel.tbl_Articles" />
+          <EntitySet Name="tbl_files" EntityType="MvcApplicationDBModel.tbl_files" />
+          <EntitySet Name="tbl_Origins" EntityType="MvcApplicationDBModel.tbl_Origins" />
+          <EntitySet Name="tbl_Products" EntityType="MvcApplicationDBModel.tbl_Products" />
+          <EntitySet Name="tbl_ProductTypes" EntityType="MvcApplicationDBModel.tbl_ProductTypes" />
+          <EntitySet Name="tbl_Relationship" EntityType="MvcApplicationDBModel.tbl_Relationship" />
+          <EntitySet Name="tbl_Units" EntityType="MvcApplicationDBModel.tbl_Units" />
+          <AssociationSet Name="pk_keyfile" Association="MvcApplicationDBModel.pk_keyfile">
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+            <End Role="tbl_files" EntitySet="tbl_files" />
+          </AssociationSet>
+          <AssociationSet Name="pk_key2" Association="MvcApplicationDBModel.pk_key2">
+            <End Role="tbl_Origins" EntitySet="tbl_Origins" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="pk_key1" Association="MvcApplicationDBModel.pk_key1">
+            <End Role="tbl_ProductTypes" EntitySet="tbl_ProductTypes" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="pk_keyUnit" Association="MvcApplicationDBModel.pk_keyUnit">
+            <End Role="tbl_Units" EntitySet="tbl_Units" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Articles">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="FeatureImage" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="ReadMore" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Meta" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Author" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="PostDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tbl_files">
+          <Key>
+            <PropertyRef Name="Fil_Id" />
+          </Key>
+          <Property Name="Fil_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pro_Id" Type="Int32" />
+          <Property Name="Fil_Name" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbl_Products" Relationship="MvcApplicationDBModel.pk_keyfile" FromRole="tbl_files" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="tbl_Origins">
+          <Key>
+            <PropertyRef Name="Ori_Id" />
+          </Key>
+          <Property Name="Ori_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ori_Conutry" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Descriptions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbl_Products" Relationship="MvcApplicationDBModel.pk_key2" FromRole="tbl_Origins" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="tbl_Products">
+          <Key>
+            <PropertyRef Name="Pro_Id" />
+          </Key>
+          <Property Name="Pro_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProType_Id" Type="Int32" />
+          <Property Name="Ori_Id" Type="Int32" />
+          <Property Name="Pro_Name" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Pro_Images" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Pro_Price" Type="Int32" />
+          <Property Name="Pro_Warranty" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Descriptions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Unit_Id" Type="Int32" />
+          <NavigationProperty Name="tbl_files" Relationship="MvcApplicationDBModel.pk_keyfile" FromRole="tbl_Products" ToRole="tbl_files" />
+          <NavigationProperty Name="tbl_Origins" Relationship="MvcApplicationDBModel.pk_key2" FromRole="tbl_Products" ToRole="tbl_Origins" />
+          <NavigationProperty Name="tbl_ProductTypes" Relationship="MvcApplicationDBModel.pk_key1" FromRole="tbl_Products" ToRole="tbl_ProductTypes" />
+          <NavigationProperty Name="tbl_Units" Relationship="MvcApplicationDBModel.pk_keyUnit" FromRole="tbl_Products" ToRole="tbl_Units" />
+        </EntityType>
+        <EntityType Name="tbl_ProductTypes">
+          <Key>
+            <PropertyRef Name="ProType_Id" />
+          </Key>
+          <Property Name="ProType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProType_Name" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Descriptions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbl_Products" Relationship="MvcApplicationDBModel.pk_key1" FromRole="tbl_ProductTypes" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="tbl_Relationship">
+          <Key>
+            <PropertyRef Name="ParentId" />
+            <PropertyRef Name="Children" />
+          </Key>
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="Children" Type="Int32" Nullable="false" />
+          <Property Name="Descriptions" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Units">
+          <Key>
+            <PropertyRef Name="Unit_Id" />
+          </Key>
+          <Property Name="Unit_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unit_Name" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tbl_Products" Relationship="MvcApplicationDBModel.pk_keyUnit" FromRole="tbl_Units" ToRole="tbl_Products" />
+        </EntityType>
+        <Association Name="pk_keyfile">
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.tbl_Products" Multiplicity="0..1" />
+          <End Role="tbl_files" Type="MvcApplicationDBModel.tbl_files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Products">
+              <PropertyRef Name="Pro_Id" />
+            </Principal>
+            <Dependent Role="tbl_files">
+              <PropertyRef Name="Pro_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk_key2">
+          <End Role="tbl_Origins" Type="MvcApplicationDBModel.tbl_Origins" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Origins">
+              <PropertyRef Name="Ori_Id" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="Ori_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk_key1">
+          <End Role="tbl_ProductTypes" Type="MvcApplicationDBModel.tbl_ProductTypes" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ProductTypes">
+              <PropertyRef Name="ProType_Id" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="ProType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk_keyUnit">
+          <End Role="tbl_Units" Type="MvcApplicationDBModel.tbl_Units" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="MvcApplicationDBModel.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Units">
+              <PropertyRef Name="Unit_Id" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="Unit_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MvcApplicationDBModelStoreContainer" CdmEntityContainer="MvcApplicationDBEntities">
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="MvcApplicationDBModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tbl_Articles"><EntityTypeMapping TypeName="MvcApplicationDBModel.tbl_Articles"><MappingFragment StoreEntitySet="tbl_Articles">
+            <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="FeatureImage" ColumnName="FeatureImage" />
+            <ScalarProperty Name="ReadMore" ColumnName="ReadMore" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="Meta" ColumnName="Meta" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Author" ColumnName="Author" />
+            <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tbl_files"><EntityTypeMapping TypeName="MvcApplicationDBModel.tbl_files"><MappingFragment StoreEntitySet="tbl_files">
+            <ScalarProperty Name="Fil_Id" ColumnName="Fil_Id" />
+            <ScalarProperty Name="Pro_Id" ColumnName="Pro_Id" />
+            <ScalarProperty Name="Fil_Name" ColumnName="Fil_Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tbl_Origins"><EntityTypeMapping TypeName="MvcApplicationDBModel.tbl_Origins"><MappingFragment StoreEntitySet="tbl_Origins">
+            <ScalarProperty Name="Ori_Id" ColumnName="Ori_Id" />
+            <ScalarProperty Name="Ori_Conutry" ColumnName="Ori_Conutry" />
+            <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tbl_Products"><EntityTypeMapping TypeName="MvcApplicationDBModel.tbl_Products"><MappingFragment StoreEntitySet="tbl_Products">
+            <ScalarProperty Name="Pro_Id" ColumnName="Pro_Id" />
+            <ScalarProperty Name="ProType_Id" ColumnName="ProType_Id" />
+            <ScalarProperty Name="Ori_Id" ColumnName="Ori_Id" />
+            <ScalarProperty Name="Pro_Name" ColumnName="Pro_Name" />
+            <ScalarProperty Name="Pro_Images" ColumnName="Pro_Images" />
+            <ScalarProperty Name="Pro_Price" ColumnName="Pro_Price" />
+            <ScalarProperty Name="Pro_Warranty" ColumnName="Pro_Warranty" />
+            <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+            <ScalarProperty Name="Unit_Id" ColumnName="Unit_Id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tbl_ProductTypes"><EntityTypeMapping TypeName="MvcApplicationDBModel.tbl_ProductTypes"><MappingFragment StoreEntitySet="tbl_ProductTypes">
+            <ScalarProperty Name="ProType_Id" ColumnName="ProType_Id" />
+            <ScalarProperty Name="ProType_Name" ColumnName="ProType_Name" />
+            <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tbl_Relationship"><EntityTypeMapping TypeName="MvcApplicationDBModel.tbl_Relationship"><MappingFragment StoreEntitySet="tbl_Relationship">
+            <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+            <ScalarProperty Name="Children" ColumnName="Children" />
+            <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tbl_Units"><EntityTypeMapping TypeName="MvcApplicationDBModel.tbl_Units"><MappingFragment StoreEntitySet="tbl_Units">
+            <ScalarProperty Name="Unit_Id" ColumnName="Unit_Id" />
+            <ScalarProperty Name="Unit_Name" ColumnName="Unit_Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MvcApplicationDB">
+        <EntityTypeShape EntityType="MvcApplicationDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="5.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcApplicationDBModel.tbl_Articles" Width="1.5" PointX="5.75" PointY="4.75" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcApplicationDBModel.tbl_files" Width="1.5" PointX="5.25" PointY="1.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcApplicationDBModel.tbl_Origins" Width="1.5" PointX="0.75" PointY="1.875" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcApplicationDBModel.tbl_Products" Width="1.5" PointX="3" PointY="1" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcApplicationDBModel.tbl_ProductTypes" Width="1.5" PointX="0.75" PointY="5.25" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcApplicationDBModel.tbl_Relationship" Width="1.5" PointX="7.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcApplicationDBModel.tbl_Units" Width="1.5" PointX="0.75" PointY="7.875" Height="1.7879850260416674" IsExpanded="true" />
+        <AssociationConnector Association="MvcApplicationDBModel.pk_keyfile" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.7401432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="2.7401432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="MvcApplicationDBModel.pk_key2" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.7689925130208328" />
+          <ConnectorPoint PointX="3" PointY="2.7689925130208328" />
+        </AssociationConnector>
+        <AssociationConnector Association="MvcApplicationDBModel.pk_key1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.46875" />
+          <ConnectorPoint PointX="4.40625" PointY="5.46875" />
+          <ConnectorPoint PointX="4.40625" PointY="4.5186979166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="MvcApplicationDBModel.pk_keyUnit" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.7689925130208337" />
+          <ConnectorPoint PointX="4.3749975" PointY="8.7689925130208337" />
+          <ConnectorPoint PointX="4.3749975" PointY="4.5186979166666656" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

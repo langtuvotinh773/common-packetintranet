@@ -1,0 +1,87 @@
+﻿@model PacketIntranet.Models.tbl_Products
+@{
+    Layout = null;
+}
+
+ <fieldset >
+                    <label>Choose ProductType</label>
+                      @* @Html.DropDownListFor(model => model.one_tbl_ProductType.ProType_Id, new SelectList(Model.list_tbl_ProductType, "ProType_Id", "ProType_Name"), new { @class = "width50" })*@
+                       @Html.DropDownList("ProType_Id", new SelectList(ViewData["ViewProType_Id"] as System.Collections.IEnumerable, "ProType_Id", "ProType_Name", Model.ProType_Id), new { @class = "width50"})
+		        </fieldset>
+                
+                 <fieldset >
+                    <label>Choose Origin</label>
+                      @* @Html.DropDownListFor(model => model.one_tbl_Origin.Ori_Id, new SelectList(Model.list_tbl_Origin, "Ori_Id", "Ori_Conutry"), new { @class = "width50" })*@
+                       @Html.DropDownList("Ori_Id", new SelectList(ViewData["ViewOri_Id"] as System.Collections.IEnumerable, "Ori_Id", "Ori_Conutry", Model.Ori_Id), new { @class = "width50" })
+		        </fieldset>
+                
+                <fieldset >
+                    <label>Choose Unit</label>
+                      @* @Html.DropDownListFor(model => model.one_tbl_Unit.Unit_Id, new SelectList(Model.list_tbl_Unit, "Unit_Id", "Unit_Name"), new { @class = "width50" })*@
+                       @Html.DropDownList("Unit_Id", new SelectList(ViewData["viewUnit_Id"] as System.Collections.IEnumerable, "Unit_Id", "Unit_Name", Model.Unit_Id), new { @class = "width50" })
+		        </fieldset>
+                 <fieldset>
+                    <label>Product Name</label>
+                    @Html.EditorFor(model => model.Pro_Name)
+		        </fieldset>
+                
+                
+                 <fieldset>
+                   @* <label>Images</label>*@
+                   
+                   @* <input type="file" class="multi" name="UploadImage[]" id="FileUpload1" />*@
+                    @{
+                    // string str = System.Configuration.ConfigurationManager.ConnectionStrings["RealImage"].ToString();
+                     string image = "";
+                     var images = Model.tbl_files.ToArray();
+                     string imageName = "";}
+            <table>
+                <tr>
+                    <td>
+                      <label class="showlabel">Property Photo Upload</label>
+                    </td>
+                    <td>
+                        <input type="file" class="multi" name="UploadImage[]" id="FileUpload1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                     @{
+                         string namefile;
+                         int dem = 10;
+                         string strPath_Image = ViewData["strPath"].ToString();
+                         try
+                         {
+                             foreach (var item in images)
+                             {
+                                 imageName = strPath_Image +  item.Fil_Name;
+                                        <img class="imageMargin" src="@imageName" width="50" height="50" />
+                                        <input type="checkbox" name="DelectImageProduct" value="@item.Fil_Name" onclick ="document.getElementById('@dem').disabled=(this.checked)?1:0" />
+                                        <input type="hidden" value="@item.Fil_Name" name="chbox" />
+                                        <span>Delete This</span> 
+                                         <input type="file" name="@item.Fil_Name" id="@dem" /> <br />
+                                                                                     dem = dem + 1;
+                             }
+                         } 
+                    catch
+                    {
+                    }
+                    }
+                    
+                    </td>
+                </tr>
+            </table>
+		        </fieldset>
+                <fieldset>
+                    <label>Product Price</label>
+                    @Html.EditorFor(model => model.Pro_Price)
+		        </fieldset>
+                <fieldset>
+                    <label>Warranty</label>
+                    @Html.EditorFor(model => model.Pro_Warranty)
+		        </fieldset>
+                 <fieldset>
+                    <label>Descriptions</label>
+                    @Html.TextAreaFor(a => a.Descriptions, new { rows = 5 })
+		        </fieldset>

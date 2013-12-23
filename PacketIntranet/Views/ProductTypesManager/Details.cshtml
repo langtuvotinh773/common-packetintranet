@@ -1,0 +1,19 @@
+﻿@model PacketIntranet.Models.tbl_ProductTypes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<article class="module width_full">
+			<header><h3>Detail ProductType : <span style="color:Red">@Model.ProType_Name</span></h3></header>
+				<div class="module_content">
+					@Html.Raw(Model.Descriptions)
+
+                     <footer>
+				<div class="submit_link">
+                	 @Html.ActionLink("Back to List", "Index")
+				
+				</div>
+			</footer>
+				</div>
+		</article><!-- end of styles article -->

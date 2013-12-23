@@ -1,0 +1,15 @@
+﻿@model PacketIntranet.Models.tbl_Units
+
+@{
+    ViewBag.Title = "tbl_Units";
+}
+
+  <fieldset>
+                    <label>Unit Name </label>
+                    @Html.EditorFor(model => model.Unit_Name)
+                </fieldset>
+                <fieldset>
+                    <label>
+                        Descriptions</label>
+                    @Html.TextAreaFor(a => a.Description, new { rows = 5 })
+                </fieldset>

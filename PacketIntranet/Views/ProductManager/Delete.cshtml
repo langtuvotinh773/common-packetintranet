@@ -1,0 +1,53 @@
+﻿@model PacketIntranet.Models.tbl_Products
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>tbl_Products</legend>
+
+    <div class="display-label">tbl_ProductTypes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tbl_ProductTypes.ProType_Name)
+    </div>
+
+    <div class="display-label">tbl_Origins</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tbl_Origins.Ori_Conutry)
+    </div>
+
+    <div class="display-label">Pro_Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Name)
+    </div>
+
+    <div class="display-label">Pro_Images</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Images)
+    </div>
+
+    <div class="display-label">Pro_Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Price)
+    </div>
+
+    <div class="display-label">Pro_Warranty</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Warranty)
+    </div>
+
+    <div class="display-label">Descriptions</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descriptions)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

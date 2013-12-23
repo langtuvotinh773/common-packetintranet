@@ -1,0 +1,50 @@
+﻿@model PacketIntranet.Models.tbl_Products
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>tbl_Products</legend>
+
+    <div class="display-label">tbl_ProductTypes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tbl_ProductTypes.ProType_Name)
+    </div>
+
+    <div class="display-label">tbl_Origins</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tbl_Origins.Ori_Conutry)
+    </div>
+
+    <div class="display-label">Pro_Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Name)
+    </div>
+
+    <div class="display-label">Pro_Images</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Images)
+    </div>
+
+    <div class="display-label">Pro_Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Price)
+    </div>
+
+    <div class="display-label">Pro_Warranty</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pro_Warranty)
+    </div>
+
+    <div class="display-label">Descriptions</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descriptions)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Pro_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

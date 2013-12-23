@@ -1,0 +1,72 @@
+﻿@model PacketIntranet.Models.ProductModel.ProductTypeModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@*<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>tbl_ProductTypes</legend>
+
+    <div class="display-label">ProType_Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProType_Name)
+    </div>
+
+    <div class="display-label">Descriptions</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descriptions)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+*@
+
+<article class="module width_full">
+			<header><h3>ARE YOU SURE YOU WANT TO DELETE ?</h3>
+            </header>
+				<div class="module_content">
+                <table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr>  
+    				<th>ProductType</th> 
+                    <th>Delete</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+            @{string All_Id = "";}
+            @foreach (var item in Model.List_tbl_ProductType)
+            {
+                All_Id = All_Id + item.ProType_Id + ",";
+                
+				<tr> 
+   					
+    				<td>ProductType :  <span style="color:Red">@item.ProType_Name</span></td> 
+                    <td><input type="checkbox" checked="checked" name="deleteAll" value="@item.ProType_Id"></td> 
+                  
+    				
+				</tr> 
+            }
+			</tbody> 
+			</table>
+
+
+
+
+
+
+         
+                     <footer>
+				<div class="submit_link">
+                	 @Html.ActionLink("Back to List", "Index")
+				
+				</div>
+			</footer>
+				</div>
+		</article><!-- end of styles article -->

@@ -1,0 +1,99 @@
+﻿@model PacketIntranet.Models.tbl_Articles
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>tbl_Articles</legend>
+
+        @Html.HiddenFor(model => model.Art_Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Art_Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Art_Title)
+            @Html.ValidationMessageFor(model => model.Art_Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Art_Type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Art_Type)
+            @Html.ValidationMessageFor(model => model.Art_Type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PostDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostDate)
+            @Html.ValidationMessageFor(model => model.PostDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FeatureImage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FeatureImage)
+            @Html.ValidationMessageFor(model => model.FeatureImage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Art_ReadMore)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Art_ReadMore)
+            @Html.ValidationMessageFor(model => model.Art_ReadMore)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Art_Content)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Art_Content)
+            @Html.ValidationMessageFor(model => model.Art_Content)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Art_Meta)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Art_Meta)
+            @Html.ValidationMessageFor(model => model.Art_Meta)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Author)
+            @Html.ValidationMessageFor(model => model.Author)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

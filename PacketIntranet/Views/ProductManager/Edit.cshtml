@@ -1,0 +1,31 @@
+﻿@model PacketIntranet.Models.ProductModel.ProductsModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Edit", "ProductManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Edit</h3></header>
+		<div class="tab_container">
+
+          @Html.EditorFor(model => model.one_tbl_Product, new { ViewProType_Id = Model.list_tbl_ProductType, ViewOri_Id = Model.list_tbl_Origin, viewUnit_Id = Model.list_tbl_Unit, strPath = Model.getPath })
+
+
+         <footer>
+				<div class="submit_link">
+                	 @Html.ActionLink("Back to List", "Index")
+					<input type="submit" value="Save" class="alt_btn">
+				
+				</div>
+			</footer>
+        </div>
+</article>
+}

@@ -1,0 +1,26 @@
+﻿@model PacketIntranet.Models.ArticleModel.ArticleModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "ArticlesManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Add</h3></header>
+		<div class="tab_container">
+
+          @Html.EditorFor(model => model.one_tbl_Articles, new { ViewArticleCategory = Model.list_Categorys })
+
+
+         <footer>
+				<div class="submit_link">
+                	 @Html.ActionLink("Back to List", "Index")
+					<input type="submit" value="Add" class="alt_btn">
+				
+				</div>
+			</footer>
+        </div>
+</article>
+}

@@ -1,0 +1,60 @@
+﻿@model PacketIntranet.Models.tbl_Articles
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>tbl_Articles</legend>
+
+    <div class="display-label">Art_Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Art_Title)
+    </div>
+
+    <div class="display-label">Art_Type</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Art_Type)
+    </div>
+
+    <div class="display-label">PostDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostDate)
+    </div>
+
+    <div class="display-label">FeatureImage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FeatureImage)
+    </div>
+
+    <div class="display-label">Art_ReadMore</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Art_ReadMore)
+    </div>
+
+    <div class="display-label">Art_Content</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Art_Content)
+    </div>
+
+    <div class="display-label">Art_Meta</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Art_Meta)
+    </div>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">Author</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Art_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

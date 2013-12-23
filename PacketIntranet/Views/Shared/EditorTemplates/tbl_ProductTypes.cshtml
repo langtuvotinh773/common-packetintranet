@@ -1,0 +1,16 @@
+﻿@model PacketIntranet.Models.tbl_ProductTypes
+
+@{
+    Layout = null;
+}
+                <fieldset>
+                    <label>
+                        ProductType</label>
+                    @Html.EditorFor(model => model.ProType_Name)
+                </fieldset>
+                <fieldset>
+                    <label>
+                        Descriptions</label>
+                    @Html.TextAreaFor(a => a.Descriptions, new { rows = 5 })
+                </fieldset>
+               
