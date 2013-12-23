@@ -1,0 +1,28 @@
+﻿@model PacketIntranet.Models.ProductModel.ProductTypeModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">New ProductType Manager</h3></header>
+		<div class="tab_container">
+
+          @Html.EditorFor(model => model.One_tbl_ProductType)
+
+
+         <footer>
+				<div class="submit_link">
+                	 @Html.ActionLink("Back to List", "Index")
+					<input type="submit" value="Add ProductType" class="alt_btn">
+				
+				</div>
+			</footer>
+        </div>
+</article>
+}

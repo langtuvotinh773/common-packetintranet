@@ -1,0 +1,16 @@
+﻿@model PacketIntranet.Models.tbl_Origins
+
+@{
+    Layout = null;
+}
+                <fieldset>
+                    <label>
+                        Country </label>
+                    @Html.EditorFor(model => model.Ori_Conutry)
+                </fieldset>
+                <fieldset>
+                    <label>
+                        Descriptions</label>
+                    @Html.TextAreaFor(a => a.Descriptions, new { rows = 5 })
+                </fieldset>
+               

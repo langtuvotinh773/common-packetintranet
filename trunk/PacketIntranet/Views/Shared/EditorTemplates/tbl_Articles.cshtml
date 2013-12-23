@@ -1,0 +1,41 @@
+﻿@model PacketIntranet.Models.tbl_Articles
+
+@{
+    Layout = null;
+}
+ <fieldset >
+                    <label>Title</label>
+                        @Html.TextBoxFor(a => a.Title)
+		        </fieldset>
+                
+                 <fieldset style="width:48%; float:left;">
+                    <label>Article Type</label>
+
+                      <input type="radio" id="chil" value="0"name="Type" checked="checked"  onclick = "document.getElementById('one_tbl_Articles_ArticleId').disabled=(this.unchecked)" />Article 
+                    
+                      <input type="radio" id="parent" value="1" name="Type" onclick ="document.getElementById('one_tbl_Articles_ArticleId').disabled=(this.checked)" /> Category
+                          
+		        </fieldset>
+                
+                 <fieldset style="width:48%; float:right;">
+
+                            <label style="width:100px">Parent Article</label>
+                          @Html.DropDownList("ArticleId", new SelectList(ViewData["ViewArticleCategory"] as System.Collections.IEnumerable, "ArticleId", "Title", Model.ArticleId), new { @class = "width50" })
+                             @*  @Html.DropDownListFor(model => model.ArticleId, new SelectList(Model.list_Categorys as System.Collections.IEnumerable, "ArticleId", "Title"), "-- Select Parent --", new {@style="width:60%"  })*@
+						</fieldset>
+                
+                <fieldset>
+							<label>Feature Image</label>
+							<input type="file" name="FeatureImage1" />
+						</fieldset>
+                
+                 <fieldset>
+                    <label>Read More</label>
+                        @Html.TextAreaFor(a => a.ReadMore, new { rows = 5 })
+		        </fieldset>
+                
+                 <fieldset>
+                    <label>Content</label>
+                        @Html.TextAreaFor(a => a.Content, new { rows = 5 })
+		        </fieldset>
+               

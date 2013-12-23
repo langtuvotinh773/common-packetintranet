@@ -1,0 +1,207 @@
+﻿@model PacketIntranet.Models.ArticleModel.ArticleModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.FormMes_delete').hide();
+        $('.Checkvalue').hide();
+
+        $('#ShowMesg').click(function () {
+            if ($(".Check").is(':checked') == true) {
+                $('.FormMes_delete').show();
+                return false;
+            } else {
+                $('.Checkvalue').show();
+                return false;
+            }
+        });
+
+
+        $('#Check_ID').click(function () {
+            var Check_val = [];
+            $(':checkbox:checked').each(function (i) {
+                Check_val[i] = $(this).val();
+            });
+            document.getElementById('hiden_ID').value = Check_val;
+        });
+        $('#hiden').click(function () {
+            $('.FormMes_delete').hide();
+        });
+        $('#Close').click(function () {
+            $('.Checkvalue').hide();
+        });
+    });
+    function DoneCallController() {
+        return false;
+    };
+   
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $('#chkAll').click(function () {
+                $("input[type=checkbox]").each(function () {
+                    if (this.checked == true) {
+                        $("input[type=checkbox]").attr('checked', 'checked');
+                    }
+                });
+
+
+            });
+            $('.Check').click(function () {
+                // $('#chkAll').attr('checked', 'checked')
+                $('#chkAll').removeAttr('checked')
+            });
+        });
+
+
+
+        function SetValueForCheckbox(thisvalue) {
+            var addvalue = thisvalue.value;
+            var hiddenValue = document.getElementById('hiden_ID').value;
+
+            if (thisvalue.checked == true) {
+                document.getElementById('hiden_ID').value = document.getElementById('hiden_ID').value + "," + addvalue;
+            }
+            else {
+                document.getElementById('hiden_ID').value = document.getElementById('hiden_ID').value.replace("," + addvalue, "");
+            }
+        }
+
+</script>
+
+ <div class="Checkvalue">
+ <div class="please">
+        <div class="title"><p>Please select least 1 record !</p></div>
+                        <div class="button">
+                            <input type="submit" id="Close" value="Close"/>
+                        </div>
+
+ </div>
+ </div>
+
+ 	@using (Html.BeginForm("Delete", "ArticlesManager", FormMethod.Post, new { id = "changeAction-form" }))
+    {
+        <input type="hidden" id="hiden_ID" name="GetAll_Id" />
+            <div class="FormMes_delete">
+                <div class="FormContent">
+                    <div class="title"><p>Are you sure you want to delete this?</p></div>
+                        <div class="button">
+                            <input type="submit" id="Check_ID" onclick="return CallController();"/>
+                            <input type="submit" id="hiden" value="Cancel" onclick="return DoneCallController();"/>
+                        </div>
+                </div>
+            </div>
+    }
+
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Product Type Manager</h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">Index</a></li>
+    		<li><a href="#tab2">New</a></li>
+		</ul>
+		</header>
+
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th class="remove"><input type="checkbox" id="chkAll" value="000" /></th> 
+    				<th class="sort">Title</th> 
+                    <th class="sort">Type</th> 
+                    <th class="sort">Post Date</th> 
+                    <th class="sort">Images</th> 
+                    <th class="sort">Status</th> 
+    				<th>Actions</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+            @{string All_Id = "";}
+            @foreach (var item in Model.List_tbl_Articles)
+            {
+                
+				<tr> 
+   					<td><input type="checkbox" value="@item.ArticleId"  class="Check" onclick="SetValueForCheckbox(this);" ></td> 
+    				<td> <a href="@Url.Action("Details", "ArticlesManager", new { @id = item.ArticleId })">@item.Title</a></td> 
+                    <td> @item.Type</td>
+                    <td> @item.PostDate</td>
+                    <td> @item.FeatureImage</td>
+                    <td> @item.Status</td>
+    				<td><a href="@Url.Action("Edit", "ArticlesManager", new { @id = item.ArticleId })"><input type="image" src="../../Content/themeHTML/images/icn_edit.png" title="Edit"></a>   
+                        
+                   </td> 
+				</tr> 
+            }
+           
+			</tbody> 
+			</table>
+             <footer>
+				<div class="submit_link">
+					<input type="submit" value="Delete" class="alt_btn"  id="ShowMesg">
+				</div>
+			</footer>
+    
+			</div><!-- end of #tab1 -->
+			
+			<div id="tab2" class="tab_content">
+            @using (Html.BeginForm("Create", "ArticlesManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="hidden" name="Check_Insert_PrimaryKey" value="1" />
+                
+               @* @Html.ValidationSummary(true)*@
+                <fieldset >
+                    <label>Title</label>
+                        @Html.TextBoxFor(a => a.one_tbl_Articles.Title)
+		        </fieldset>
+                
+                 <fieldset style="width:48%; float:left;">
+                    <label>Article Type</label>
+
+                      <input type="radio" id="chil" value="0"name="Type" checked="checked"  onclick = "document.getElementById('one_tbl_Articles_ArticleId').disabled=(this.unchecked)" />Article 
+                    
+                      <input type="radio" id="parent" value="1" name="Type" onclick ="document.getElementById('one_tbl_Articles_ArticleId').disabled=(this.checked)" /> Category
+                          
+		        </fieldset>
+                
+                 <fieldset style="width:48%; float:right;">
+
+                            <label style="width:100px">Parent Article</label>
+                            
+                               @Html.DropDownListFor(model => model.one_tbl_Articles.ArticleId, new SelectList(Model.list_Categorys as System.Collections.IEnumerable, "ArticleId", "Title"), "-- Select Parent --", new {@style="width:60%"  })
+						</fieldset>
+                
+                <fieldset>
+							<label>Feature Image</label>
+							<input type="file" name="FeatureImage1" />
+						</fieldset>
+                
+                 <fieldset>
+                    <label>Read More</label>
+                        @Html.TextAreaFor(a => a.one_tbl_Articles.ReadMore, new { rows = 5 })
+		        </fieldset>
+                
+                 <fieldset>
+                    <label>Content</label>
+                        @Html.TextAreaFor(a => a.one_tbl_Articles.Content, new { rows = 5 })
+		        </fieldset>
+               
+                
+
+                <footer>
+				<div class="submit_link">
+					<input type="submit" value="Add" class="alt_btn">
+					<input type="button" value="Reset">
+				</div>
+			</footer>
+            }
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->

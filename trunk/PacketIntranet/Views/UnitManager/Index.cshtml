@@ -1,0 +1,169 @@
+﻿<!-------------------------------------->
+@model PacketIntranet.Models.ProductModel.UnitModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.FormMes_delete').hide();
+        $('.Checkvalue').hide();
+
+        $('#ShowMesg').click(function () {
+            if ($(".Check").is(':checked') == true) {
+                $('.FormMes_delete').show();
+                return false;
+            } else {
+                $('.Checkvalue').show();
+                return false;
+            }
+        });
+
+
+        $('#Check_ID').click(function () {
+            var Check_val = [];
+            $(':checkbox:checked').each(function (i) {
+                Check_val[i] = $(this).val();
+            });
+            document.getElementById('hiden_ID').value = Check_val;
+        });
+        $('#hiden').click(function () {
+            $('.FormMes_delete').hide();
+        });
+        $('#Close').click(function () {
+            $('.Checkvalue').hide();
+        });
+    });
+    function DoneCallController() {
+        return false;
+    };
+   
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $('#chkAll').click(function () {
+                $("input[type=checkbox]").each(function () {
+                    if (this.checked == true) {
+                        $("input[type=checkbox]").attr('checked', 'checked');
+                    }
+                });
+
+
+            });
+            $('.Check').click(function () {
+                // $('#chkAll').attr('checked', 'checked')
+                $('#chkAll').removeAttr('checked')
+            });
+        });
+
+
+
+        function SetValueForCheckbox(thisvalue) {
+            var addvalue = thisvalue.value;
+            var hiddenValue = document.getElementById('hiden_ID').value;
+
+            if (thisvalue.checked == true) {
+                document.getElementById('hiden_ID').value = document.getElementById('hiden_ID').value + "," + addvalue;
+            }
+            else {
+                document.getElementById('hiden_ID').value = document.getElementById('hiden_ID').value.replace("," + addvalue, "");
+            }
+        }
+
+</script>
+ <div class="Checkvalue">
+ <div class="please">
+        <div class="title"><p>Please select least at 1 record !</p></div>
+                        <div class="button">
+                            <input type="submit" id="Close" value="Close"/>
+                        </div>
+
+ </div>
+ </div>
+
+ 			 @using (Html.BeginForm("Delete", "UnitManager", FormMethod.Post, new { id = "changeAction-form" }))
+    {
+        <input type="hidden" id="hiden_ID" name="GetAll_Id" />
+            <div class="FormMes_delete">
+                <div class="FormContent">
+                    <div class="title"><p>Are you sure you want to delete this?</p></div>
+                        <div class="button">
+                            <input type="submit" id="Check_ID" onclick="return CallController();"/>
+                            <input type="submit" id="hiden" value="Cancel" onclick="return DoneCallController();"/>
+                        </div>
+                </div>
+            </div>
+    }
+
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Unit Manager</h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">Index</a></li>
+    		<li><a href="#tab2">New</a></li>
+		</ul>
+		</header>
+
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th class="remove"><input type="checkbox" id="chkAll" value="000" /></th> 
+    				<th class="sort">Unit Name</th> 
+    				<th>Actions</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+            @{string All_Id = "";}
+            @foreach (var item in Model.List_tbl_Units)
+            {
+                All_Id = All_Id + item.Unit_Id + ",";
+                
+				<tr> 
+   					<td><input type="checkbox" value="@item.Unit_Id"  class="Check" onclick="SetValueForCheckbox(this);" ></td> 
+    				<td> <a href="@Url.Action("Details", "UnitManager", new { @id = item.Unit_Id })">@item.Unit_Name</a></td> 
+    				<td><a href="@Url.Action("Edit", "UnitManager", new { @id = item.Unit_Id })"><input type="image" src="../../Content/themeHTML/images/icn_edit.png" title="Edit"></a>   
+                        
+                   </td> 
+				</tr> 
+            }
+           
+			</tbody> 
+			</table>
+             <footer>
+				<div class="submit_link">
+					<input type="submit" value="Delete" class="alt_btn"  id="ShowMesg">
+				</div>
+			</footer>
+    
+			</div><!-- end of #tab1 -->
+			
+			<div id="tab2" class="tab_content">
+            @using (Html.BeginForm("Create", "UnitManager"))
+            {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <label>Unit Name</label>
+                    @Html.EditorFor(model => model.One_tbl_Unit.Unit_Name)
+		        </fieldset>
+                 <fieldset>
+                    <label>Descriptions</label>
+                    @Html.TextAreaFor(a => a.One_tbl_Unit.Description, new { rows = 5 })
+		        </fieldset>
+
+                <footer>
+				<div class="submit_link">
+					<input type="submit" value="Add ProductType" class="alt_btn">
+					<input type="submit" value="Reset">
+				</div>
+			</footer>
+            }
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->

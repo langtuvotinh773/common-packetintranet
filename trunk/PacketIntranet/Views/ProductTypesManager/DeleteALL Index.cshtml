@@ -1,0 +1,146 @@
+﻿@model PacketIntranet.Models.ProductModel.ProductTypeModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.FormMes_delete').hide();
+        $('.Checkvalue').hide();
+
+        $('#ShowMesg').click(function () {
+
+            if ($(".Check").is(':checked') == true) {
+                $('.FormMes_delete').show();
+                return false;
+            } else {
+                $('.Checkvalue').show();
+                return false;
+            }
+
+        });
+
+        $('#hiden').click(function () {
+            $('.FormMes_delete').hide();
+        });
+        $('#Close').click(function () {
+            $('.Checkvalue').hide();
+        });
+
+
+    });
+    function DoneCallController() {
+        return false;
+    };
+   
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $('#chkAll').click(function () {
+                $("input[type=checkbox]").each(function () {
+                    if (this.checked == true) {
+                        $("input[type=checkbox]").attr('checked', 'checked');
+                    }
+                    else {
+                        $("input[type=checkbox]").attr('checked', false);
+                    }
+                });
+            });
+        });
+</script>
+
+ <div class="Checkvalue">
+ <div class="please">
+        <div class="title"><p>Please select least 1 record !</p></div>
+                        <div class="button">
+                            <input type="submit" id="Close" value="Close"/>
+                        </div>
+
+ </div>
+ </div>
+
+
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Product Type Manager</h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">Index</a></li>
+    		<li><a href="#tab2">New</a></li>
+		</ul>
+		</header>
+
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+			 @using (Html.BeginForm("Delete", "ProductTypesManager"))
+             {
+            <div class="FormMes_delete">
+                <div class="FormContent">
+                    <div class="title"><p>Are you sure you want to delete this?</p></div>
+                        <div class="button">
+                            <input type="submit" id="Check_ID" onclick="return CallController();"/>
+                            <input type="submit" id="hiden" value="Cancel" onclick="return DoneCallController();"/>
+                        </div>
+                </div>
+            </div>
+        
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th class="remove"><input type="checkbox" id="chkAll" /></th> 
+    				<th class="sort">ProductsType</th> 
+                   @* <th>Descriptions</th> *@
+    				<th>Actions</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+            @{string All_Id = "";}
+            @foreach (var item in Model.List_tbl_ProductType)
+            {
+                All_Id = All_Id + item.ProType_Id + ",";
+                
+				<tr> 
+   					<td><input type="checkbox" value="@item.ProType_Id" name="GetAll_Id" class="Check" ></td> 
+    				<td> <a href="@Url.Action("Details", "ProductTypesManager", new { @id = item.ProType_Id })">@item.ProType_Name</a></td> 
+                   @* <td>@Html.Raw(item.Descriptions)</td> *@
+    				<td>
+                     <a href="@Url.Action("Edit", "ProductTypesManager", new { @id = item.ProType_Id })"><input type="image" src="../../Content/themeHTML/images/icn_edit.png" title="Edit"></a>   
+                        
+                   </td> 
+				</tr> 
+            }
+           
+			</tbody> 
+			</table>
+             <footer>
+				<div class="submit_link">
+					<input type="submit" value="Delete" class="alt_btn"  id="ShowMesg">
+				</div>
+			</footer>
+             }
+			</div><!-- end of #tab1 -->
+			
+			<div id="tab2" class="tab_content">
+            @using (Html.BeginForm("Create", "ProductTypesManager"))
+            {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <label>ProductType</label>
+                    @Html.EditorFor(model => model.One_tbl_ProductType.ProType_Name)
+		        </fieldset>
+                 <fieldset>
+                    <label>Descriptions</label>
+                    @Html.TextAreaFor(a => a.One_tbl_ProductType.Descriptions, new { rows = 5 })
+		        </fieldset>
+
+                <footer>
+				<div class="submit_link">
+					<input type="submit" value="Add ProductType" class="alt_btn">
+					<input type="submit" value="Reset">
+				</div>
+			</footer>
+            }
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->
