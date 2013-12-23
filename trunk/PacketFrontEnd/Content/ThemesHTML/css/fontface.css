@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "HelveticaN";
+    src: url('../fonts/ds-digib-webfont.eot');
+    src: url('../fonts/ds-digib-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ds-digib-webfont.woff') format('woff'),
+    url('../fonts/ds-digib-webfont.ttf') format('truetype'),
+    url('../fonts/ds-digib-webfont.svg#HelveticaNeueBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}  
+
+.StyledText
+{
+    color: #fff;
+    font-family: 'HelveticaRounded';
+    font-size: 17px;
+    text-shadow: 1px 1px 1px #333333;
+}
+.whiteshadowText
+{
+     text-shadow: 0px 1px 1px #fff;
+}
